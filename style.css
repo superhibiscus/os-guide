@@ -1,0 +1,1201 @@
+/* CSS-ПЕРЕМЕННЫЕ */
+:root {
+  /* Цвета фона */
+  --clr-bg: #f4f6fb;
+  --clr-surface: #ffffff;
+  --clr-surface-2: #f0f3fa;
+  --clr-border: rgba(0, 0, 0, .08);
+
+  /* Текст */
+  --clr-text: #111827;
+  --clr-muted: #6b7280;
+  --clr-faint: #9ca3af;
+
+  /* Акценты Windows (синий) */
+  --clr-win: #0078d4;
+  --clr-win-bg: rgba(0, 120, 212, .08);
+  --clr-win-light: #3aa0ff;
+
+  /* Акценты Linux (зелёный) */
+  --clr-linux: #5c9b3a;
+  --clr-linux-bg: rgba(92, 155, 58, .08);
+  --clr-linux-light: #7ec452;
+
+  /* Главный акцент страницы */
+  --clr-accent: #6366f1;
+  /* индиго */
+  --clr-accent-bg: rgba(99, 102, 241, .1);
+
+  /* Типографика */
+  --ff-head: 'Outfit', sans-serif;
+  --ff-body: 'Outfit', sans-serif;
+  --ff-em: 'Lora', serif;
+
+  /* Скругления */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+
+  /* Тени */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, .07), 0 4px 12px rgba(0, 0, 0, .05);
+  --shadow: 0 4px 24px rgba(0, 0, 0, .10), 0 1px 4px rgba(0, 0, 0, .06);
+  --shadow-lg: 0 12px 48px rgba(0, 0, 0, .14);
+
+  /* Анимация */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+}
+
+/* СБРОС И БАЗОВЫЕ СТИЛИ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Блок: page — корневой блок тела страницы */
+body.page {
+  background: var(--clr-bg);
+  /* Мягкий сетчатый фон */
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(99, 102, 241, .06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 100%, rgba(0, 120, 212, .05) 0%, transparent 50%);
+  color: var(--clr-text);
+  font-family: var(--ff-body);
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/*БЛОК: header
+   Семантический тег <header> */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* Стекло: полупрозрачный фон + размытие */
+  background: rgba(244, 246, 251, .82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+/* Элемент: внутренний контейнер шапки */
+.header__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Элемент: логотип */
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--ff-head);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  cursor: default;
+  user-select: none;
+}
+
+/* Элемент: цветная метка в логотипе */
+.header__logo-mark {
+  background: linear-gradient(135deg, var(--clr-accent), #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Элемент: текст логотипа */
+.header__logo-text {
+  color: var(--clr-text);
+}
+
+
+/* БЛОК: nav */
+.nav {
+  display: flex;
+  gap: 4px;
+}
+
+/* Элемент: ссылка навигации */
+.nav__link {
+  padding: 7px 20px;
+  border-radius: 100px;
+  font-family: var(--ff-head);
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--clr-muted);
+  transition: color .2s var(--ease), background .2s var(--ease);
+}
+
+.nav__link:hover {
+  color: var(--clr-text);
+  background: var(--clr-surface-2);
+}
+
+/* Модификатор: активная ссылка (текущая страница) */
+.nav__link--active {
+  background: var(--clr-accent-bg);
+  color: var(--clr-accent);
+}
+
+/* БЛОК: btn */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 28px;
+  border-radius: 100px;
+  font-family: var(--ff-head);
+  font-weight: 700;
+  font-size: .95rem;
+  cursor: pointer;
+  letter-spacing: .01em;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease), opacity .18s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Модификатор: основная кнопка (заливка) */
+.btn--primary {
+  background: linear-gradient(135deg, var(--clr-accent), #818cf8);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(99, 102, 241, .35);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 10px 32px rgba(99, 102, 241, .45);
+}
+
+/* Модификатор: контурная кнопка */
+.btn--outline {
+  border: 1.5px solid var(--clr-border);
+  color: var(--clr-text);
+  background: var(--clr-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--outline:hover {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+}
+
+/* Модификатор: мягкая кнопка (используется внутри карточек) */
+.btn--soft {
+  padding: 8px 18px;
+  font-size: .85rem;
+  background: transparent;
+  border: 1.5px solid transparent;
+  font-weight: 600;
+}
+
+/* Модификатор цвета мягкой кнопки */
+.btn--soft-blue {
+  color: var(--clr-win);
+  border-color: var(--clr-win-bg);
+  background: var(--clr-win-bg);
+}
+
+.btn--soft-green {
+  color: var(--clr-linux);
+  border-color: var(--clr-linux-bg);
+  background: var(--clr-linux-bg);
+}
+
+.btn--soft-blue:hover {
+  background: rgba(0, 120, 212, .15);
+}
+
+.btn--soft-green:hover {
+  background: rgba(92, 155, 58, .15);
+}
+
+
+/* БЛОК: main — главный экран (hero-секция) */
+.main {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Модификатор: компактная версия для страницы сравнения */
+.main--compare .main__inner {
+  padding: 72px 28px 56px;
+  justify-content: flex-start;
+}
+
+/* Элемент: декоративный фоновый слой */
+.main__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Элемент: цветное пятно-блоб */
+.main__bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .5;
+}
+
+/* Модификаторы цветных блобов */
+.main__bg-blob--blue {
+  width: 560px;
+  height: 560px;
+  background: rgba(99, 102, 241, .15);
+  top: -200px;
+  right: -100px;
+}
+
+.main__bg-blob--mint {
+  width: 400px;
+  height: 400px;
+  background: rgba(92, 155, 58, .12);
+  bottom: -100px;
+  left: 10%;
+}
+
+.main__bg-blob--peach {
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 120, 212, .10);
+  top: 50%;
+  left: 40%;
+}
+
+/* Элемент: внутренний контейнер */
+.main__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 100px 28px 80px;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Элемент: текстовый контент */
+.main__content {
+  flex: 1;
+}
+
+/* Элемент: метка над заголовком */
+.main__eyebrow {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 16px;
+  /* Тонкая полоска слева */
+  padding-left: 14px;
+  border-left: 3px solid var(--clr-accent);
+}
+
+/* Элемент: заголовок h1 */
+.main__title {
+  font-family: var(--ff-head);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+  color: var(--clr-text);
+  margin-bottom: 22px;
+}
+
+/* Элемент: курсивный акцент в заголовке */
+.main__title-em {
+  font-family: var(--ff-em);
+  font-style: italic;
+  font-weight: 500;
+  /* Градиентный текст */
+  background: linear-gradient(135deg, var(--clr-accent), var(--clr-win-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Элемент: подзаголовок */
+.main__desc {
+  font-size: 1.08rem;
+  color: var(--clr-muted);
+  max-width: 480px;
+  margin-bottom: 36px;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* Элемент: группа кнопок */
+.main__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Элемент: визуальная часть (изображение) */
+.main__visual {
+  flex: 0 0 440px;
+  position: relative;
+}
+
+/* Элемент: само изображение */
+.main__visual-img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  /* Лёгкая рамка как у стекла */
+  border: 1px solid rgba(255, 255, 255, .6);
+}
+
+/* Элемент: плавающая плашка поверх изображения */
+.main__visual-badge {
+  position: absolute;
+  bottom: -16px;
+  left: 24px;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: .83rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--clr-text);
+  /* Стеклянный эффект */
+  backdrop-filter: blur(8px);
+}
+
+/* Элемент: мигающая точка в плашке */
+.main__visual-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, .4);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, .4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+/* БЛОК: os-cards — секция с карточками ОС */
+.os-cards {
+  padding: 100px 28px;
+}
+
+/* Элемент: контейнер */
+.os-cards__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Элемент: заголовок секции */
+.os-cards__title {
+  font-family: var(--ff-head);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin-bottom: 40px;
+  color: var(--clr-text);
+}
+
+/* Элемент: сетка карточек */
+.os-cards__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* БЛОК: card — карточка операционной системы */
+.card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+}
+
+/* Декоративная полоска сверху карточки */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 20px 20px 0 0;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Модификатор: карточка Windows */
+.card--windows::before {
+  background: linear-gradient(90deg, var(--clr-win), var(--clr-win-light));
+}
+
+/* Модификатор: карточка Linux */
+.card--linux::before {
+  background: linear-gradient(90deg, var(--clr-linux), var(--clr-linux-light));
+}
+
+/* Элемент: шапка карточки */
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+/* Элемент: логотип ОС */
+.card__logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Элемент: мета-блок (название + бейдж) */
+.card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Элемент: название ОС */
+.card__title {
+  font-family: var(--ff-head);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: var(--clr-text);
+}
+
+/* Элемент: бейдж */
+.card__badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 100px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+/* Модификатор: синий бейдж (Windows) */
+.card__badge--blue {
+  background: var(--clr-win-bg);
+  color: var(--clr-win);
+}
+
+/* Модификатор: зелёный бейдж (Linux) */
+.card__badge--green {
+  background: var(--clr-linux-bg);
+  color: var(--clr-linux);
+}
+
+/* Элемент: описание карточки */
+.card__desc {
+  font-size: .95rem;
+  color: var(--clr-muted);
+  margin-bottom: 22px;
+  line-height: 1.7;
+}
+
+/* Элемент: список характеристик */
+.card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 28px;
+}
+
+/* Элемент: пункт списка */
+.card__list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .92rem;
+  color: var(--clr-text);
+}
+
+/* Маркер пункта списка через псевдоэлемент */
+.card__list-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.card--windows .card__list-item::before {
+  background: var(--clr-win);
+}
+
+.card--linux .card__list-item::before {
+  background: var(--clr-linux);
+}
+
+/* Элемент: подвал карточки */
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--clr-border);
+  padding-top: 20px;
+}
+
+/* Элемент: статистическая строка */
+.card__stat {
+  font-size: .85rem;
+  color: var(--clr-muted);
+}
+
+.card__stat strong {
+  color: var(--clr-text);
+  font-weight: 700;
+}
+
+/* БЛОК: features — секция ключевых концепций */
+.features {
+  background: var(--clr-surface);
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 96px 28px;
+}
+
+/* Элемент: внутренний контейнер */
+.features__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Элемент: шапка секции */
+.features__head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* Элемент: метка над заголовком */
+.features__eyebrow {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 10px;
+}
+
+/* Элемент: заголовок секции */
+.features__title {
+  font-family: var(--ff-head);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: var(--clr-text);
+}
+
+/* Элемент: сетка концепций */
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* БЛОК: feature — карточка концепции */
+.feature {
+  padding: 32px 26px;
+  border-radius: var(--radius);
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  text-align: center;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease);
+}
+
+.feature:hover {
+  border-color: rgba(99, 102, 241, .4);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, .1);
+  transform: translateY(-3px);
+}
+
+/* Элемент: иконка */
+.feature__icon {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  /* Стеклянный кружок */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: var(--clr-surface);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--clr-border);
+}
+
+/* Элемент: название концепции */
+.feature__title {
+  font-family: var(--ff-head);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--clr-text);
+  letter-spacing: -.01em;
+}
+
+/* Элемент: описание */
+.feature__text {
+  font-size: .87rem;
+  color: var(--clr-muted);
+  line-height: 1.6;
+}
+
+/* БЛОК: banner — визуальный баннер сравнения (страница 2) */
+.banner {
+  background: var(--clr-surface);
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+/* Элемент: внутренний контейнер */
+.banner__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  min-height: 300px;
+}
+
+/* Элемент: сторона баннера */
+.banner__side {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Элемент: изображение в баннере */
+.banner__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .6;
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+}
+
+.banner__side:hover .banner__img {
+  opacity: .85;
+  transform: scale(1.03);
+}
+
+/* Элемент: подпись поверх изображения */
+.banner__caption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Стекло */
+  background: rgba(255, 255, 255, .75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, .8);
+  padding: 10px 18px;
+  border-radius: 100px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Элемент: иконка в подписи */
+.banner__caption-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Элемент: текст подписи */
+.banner__caption-text {
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+/* Элемент: разделитель VS */
+.banner__divider {
+  flex: 0 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-bg);
+  border-left: 1px solid var(--clr-border);
+  border-right: 1px solid var(--clr-border);
+  position: relative;
+  z-index: 1;
+}
+
+/* Элемент: текст VS */
+.banner__divider-label {
+  font-family: var(--ff-head);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  color: var(--clr-faint);
+}
+
+/* БЛОК: compare — секция с таблицей сравнения (страница 2) */
+.compare {
+  padding: 80px 28px;
+}
+
+/* Элемент: внутренний контейнер */
+.compare__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Элемент: шапка секции */
+.compare__head {
+  margin-bottom: 36px;
+}
+
+/* Элемент: метка */
+.compare__eyebrow {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 8px;
+}
+
+/* Элемент: заголовок */
+.compare__title {
+  font-family: var(--ff-head);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: var(--clr-text);
+}
+
+/* Элемент: обёртка таблицы (горизонтальный скролл на мобилке) */
+.compare__table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--clr-border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* БЛОК: table — таблица характеристик */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .92rem;
+  background: var(--clr-surface);
+}
+
+/* Элемент: голова таблицы */
+.table__head {
+  background: var(--clr-surface-2);
+}
+
+/* Элемент: строка таблицы */
+.table__row {
+  border-bottom: 1px solid var(--clr-border);
+  transition: background .15s;
+}
+
+.table__row:last-child {
+  border-bottom: none;
+}
+
+.table__row:hover {
+  background: var(--clr-surface-2);
+}
+
+/* Модификатор: чётная строка (зебра) */
+.table__row--alt {
+  background: rgba(0, 0, 0, .015);
+}
+
+/* Элемент: ячейка */
+.table__cell {
+  padding: 15px 20px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* Модификатор: ячейка-заголовок колонки */
+.table__cell--head {
+  font-family: var(--ff-head);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--clr-muted);
+}
+
+/* Модификатор: колонка параметра */
+.table__cell--param {
+  color: var(--clr-muted);
+  font-size: .88rem;
+  width: 30%;
+}
+
+/* Модификатор: колонка Windows */
+.table__cell--windows {
+  color: var(--clr-text);
+}
+
+/* Заголовок колонки Windows */
+.table__cell--head.table__cell--windows {
+  color: var(--clr-win);
+}
+
+/* Модификатор: колонка Linux */
+.table__cell--linux {
+  color: var(--clr-text);
+}
+
+/* Заголовок колонки Linux */
+.table__cell--head.table__cell--linux {
+  color: var(--clr-linux);
+}
+
+/* Модификатор: хорошая оценка */
+.table__cell--good {
+  font-weight: 600;
+  color: #16a34a;
+}
+
+/* Модификатор: средняя оценка */
+.table__cell--medium {
+  color: var(--clr-muted);
+}
+
+/* Модификатор: выделенное значение (преимущество) */
+.table__cell--highlight {
+  font-weight: 600;
+  color: var(--clr-linux);
+}
+
+/* БЛОК: usecases — сценарии применения (страница 2) */
+.usecases {
+  background: var(--clr-surface);
+  border-top: 1px solid var(--clr-border);
+  padding: 80px 28px;
+}
+
+/* Элемент: внутренний контейнер */
+.usecases__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Элемент: шапка секции */
+.usecases__head {
+  margin-bottom: 40px;
+}
+
+/* Элемент: метка */
+.usecases__eyebrow {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 8px;
+}
+
+/* Элемент: заголовок */
+.usecases__title {
+  font-family: var(--ff-head);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: var(--clr-text);
+}
+
+/* Элемент: сетка */
+.usecases__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* БЛОК: usecase — карточка сценария */
+.usecase {
+  border-radius: 20px;
+  padding: 36px;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Декоративный угловой акцент */
+.usecase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 0 20px 0 120px;
+  opacity: .06;
+}
+
+/* Модификатор: карточка Windows */
+.usecase--windows::before {
+  background: var(--clr-win);
+}
+
+/* Модификатор: карточка Linux */
+.usecase--linux::before {
+  background: var(--clr-linux);
+}
+
+/* Элемент: заголовок */
+.usecase__title {
+  font-family: var(--ff-head);
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 22px;
+  letter-spacing: -.02em;
+}
+
+.usecase--windows .usecase__title {
+  color: var(--clr-win);
+}
+
+.usecase--linux .usecase__title {
+  color: var(--clr-linux);
+}
+
+/* Элемент: список сценариев */
+.usecase__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Элемент: пункт сценария */
+.usecase__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  font-size: .9rem;
+  font-weight: 500;
+  transition: border-color .15s, transform .15s;
+}
+
+.usecase__item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.usecase--windows .usecase__item::before {
+  background: var(--clr-win);
+}
+
+.usecase--linux .usecase__item::before {
+  background: var(--clr-linux);
+}
+
+.usecase__item:hover {
+  border-color: rgba(99, 102, 241, .2);
+  transform: translateX(4px);
+}
+
+/* БЛОК: footer — подвал сайта
+   Семантический тег <footer> */
+.footer {
+  border-top: 1px solid var(--clr-border);
+  padding: 30px 28px;
+  background: var(--clr-surface);
+}
+
+/* Элемент: внутренний контейнер */
+.footer__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Элемент: текст копирайта */
+.footer__copy {
+  font-size: .83rem;
+  color: var(--clr-faint);
+}
+
+/* Элемент: навигация в подвале */
+.footer__nav {
+  display: flex;
+  gap: 24px;
+}
+
+/* Элемент: ссылка в подвале */
+.footer__link {
+  font-size: .83rem;
+  color: var(--clr-muted);
+  font-weight: 500;
+  transition: color .15s;
+}
+
+.footer__link:hover {
+  color: var(--clr-accent);
+}
+
+/* АДАПТИВ */
+
+/* Планшет */
+@media (max-width: 960px) {
+  .main__inner {
+    flex-direction: column;
+    padding: 72px 24px 56px;
+    gap: 48px;
+  }
+
+  .main__visual {
+    flex: unset;
+    width: 100%;
+    max-width: 540px;
+  }
+
+  .os-cards__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .usecases__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Мобильный */
+@media (max-width: 600px) {
+  .header__inner {
+    padding: 0 16px;
+  }
+
+  .main__inner {
+    padding: 56px 16px 48px;
+  }
+
+  .os-cards {
+    padding: 64px 16px;
+  }
+
+  .features {
+    padding: 64px 16px;
+  }
+
+  .compare {
+    padding: 56px 16px;
+  }
+
+  .usecases {
+    padding: 56px 16px;
+  }
+
+  .features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .banner__inner {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .banner__side {
+    min-height: 200px;
+  }
+
+  .banner__divider {
+    flex: 0 0 48px;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid var(--clr-border);
+    border-bottom: 1px solid var(--clr-border);
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .main__actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    justify-content: center;
+  }
+}

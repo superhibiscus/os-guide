@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Операционные системы — Главная</title>
+
+  <!-- Подключение шрифтов Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;1,500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Подключение общих стилей -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="page">
+
+  <!-- Семантический тег <header>
+       Шапка сайта: логотип + навигация -->
+  <header class="header">
+    <div class="header__inner">
+
+      <!-- Элемент: логотип -->
+      <div class="header__logo">
+        <span class="header__logo-mark">OS</span>
+        <span class="header__logo-text">Guide</span>
+      </div>
+
+      <!-- Блок: nav — основная навигация -->
+      <nav class="nav" aria-label="Основная навигация">
+        <!-- Элемент ссылка; модификатор --active — текущая страница -->
+        <a class="nav__link nav__link--active" href="index.html">Главная</a>
+        <a class="nav__link" href="compare.html">Сравнение</a>
+      </nav>
+
+    </div>
+  </header>
+  <!-- /header -->
+
+  <!-- СЕМАНТИЧЕСКИЙ ТЕГ: <main>
+       Основное содержимое страницы -->
+  <main>
+
+    <!-- БЛОК: main — главный экран (hero-секция)
+         Семантический тег <section> -->
+    <section class="main" aria-label="Главный экран">
+
+      <!-- Декоративный фоновый слой -->
+      <div class="main__bg" aria-hidden="true">
+        <div class="main__bg-blob main__bg-blob--blue"></div>
+        <div class="main__bg-blob main__bg-blob--mint"></div>
+        <div class="main__bg-blob main__bg-blob--peach"></div>
+      </div>
+
+      <div class="main__inner">
+
+        <!-- Элемент: текстовый блок -->
+        <div class="main__content">
+          <!-- Элемент: надпись-метка -->
+          <p class="main__eyebrow">Учебный справочник</p>
+
+          <!-- Элемент: заголовок страницы -->
+          <h1 class="main__title">
+            Операционные<br />
+            <em class="main__title-em">системы</em> сегодня
+          </h1>
+
+          <!-- Элемент: подзаголовок -->
+          <p class="main__desc">
+            Windows 11 и Linux Mint — изучаем архитектуру, интерфейс
+            и сценарии применения двух ведущих ОС.
+          </p>
+
+          <!-- Элемент: группа кнопок -->
+          <div class="main__actions">
+            <!-- Блок: btn; модификатор --primary -->
+            <a class="btn btn--primary" href="compare.html">Сравнить ОС</a>
+            <!-- Блок: btn; модификатор --outline -->
+            <a class="btn btn--outline" href="#os-cards">Обзор систем ↓</a>
+          </div>
+        </div>
+
+        <!-- Элемент: изображение (фото ноутбука через URL) -->
+        <div class="main__visual">
+          <img class="main__visual-img" src="img/Mac.jpg"
+            alt="Ноутбук с открытой операционной системой" loading="eager" />
+          <!-- Элемент: плавающая плашка поверх изображения -->
+          <div class="main__visual-badge">
+            <span class="main__visual-badge-dot"></span>
+            2 операционные системы
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- /section.main -->
+
+    <!-- БЛОК: os-cards — карточки ОС
+         Семантический тег <section> -->
+    <section class="os-cards" id="os-cards" aria-label="Карточки операционных систем">
+      <div class="os-cards__inner">
+
+        <!-- Элемент: заголовок секции -->
+        <h2 class="os-cards__title">Краткий обзор</h2>
+
+        <!-- Элемент: сетка карточек -->
+        <div class="os-cards__grid">
+
+          <!-- БЛОК: card; модификатор --windows -->
+          <article class="card card--windows">
+
+            <!-- Элемент: шапка карточки -->
+            <div class="card__header">
+              <!-- Элемент: логотип ОС (URL-изображение) -->
+              <img class="card__logo" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/windows11.svg"
+                alt="Логотип Windows 11" style="filter: invert(30%) sepia(90%) saturate(1500%) hue-rotate(190deg);" />
+              <div class="card__meta">
+                <!-- Элемент: название ОС -->
+                <h3 class="card__title">Windows 11</h3>
+                <!-- Элемент: бейдж; модификатор --blue -->
+                <span class="card__badge card__badge--blue">Microsoft · 2021</span>
+              </div>
+            </div>
+
+            <!-- Элемент: описание -->
+            <p class="card__desc">
+              Флагманская ОС от Microsoft с переработанным интерфейсом,
+              Snap-раскладками и интеграцией Android-приложений.
+            </p>
+
+            <!-- Элемент: список особенностей -->
+            <ul class="card__list">
+              <li class="card__list-item">Гибридное ядро Windows NT</li>
+              <li class="card__list-item">DirectX 12 Ultimate + Auto HDR</li>
+              <li class="card__list-item">WSL 2 — среда Linux внутри Windows</li>
+              <li class="card__list-item">Snap-раскладки и виртуальные рабочие столы</li>
+            </ul>
+
+            <!-- Элемент: нижняя строка карточки -->
+            <div class="card__footer">
+              <span class="card__stat">Рыночная доля: <strong>~73 %</strong></span>
+              <!-- Блок: btn; модификатор --soft внутри карточки -->
+              <a class="btn btn--soft btn--soft-blue" href="compare.html">Подробнее →</a>
+            </div>
+
+          </article>
+          <!-- /article.card--windows -->
+
+
+          <!-- БЛОК: card; модификатор --linux -->
+          <article class="card card--linux">
+
+            <!-- Элемент: шапка карточки -->
+            <div class="card__header">
+              <!-- Элемент: логотип ОС (URL-изображение) -->
+              <img class="card__logo" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linuxmint.svg"
+                alt="Логотип Linux Mint" style="filter: invert(55%) sepia(60%) saturate(500%) hue-rotate(65deg);" />
+              <div class="card__meta">
+                <!-- Элемент: название ОС -->
+                <h3 class="card__title">Linux Mint</h3>
+                <!-- Элемент: бейдж; модификатор --green -->
+                <span class="card__badge card__badge--green">Open Source · GPL</span>
+              </div>
+            </div>
+
+            <!-- Элемент: описание -->
+            <p class="card__desc">
+              Дистрибутив на базе Ubuntu с рабочим столом Cinnamon —
+              стабильный, удобный и полностью бесплатный.
+            </p>
+
+            <!-- Элемент: список особенностей -->
+            <ul class="card__list">
+              <li class="card__list-item">Монолитное ядро Linux 6.x</li>
+              <li class="card__list-item">Рабочий стол Cinnamon / MATE / Xfce</li>
+              <li class="card__list-item">Менеджер пакетов apt + Flatpak</li>
+              <li class="card__list-item">Полная настройка без ограничений</li>
+            </ul>
+
+            <!-- Элемент: нижняя строка карточки -->
+            <div class="card__footer">
+              <span class="card__stat">Версия: <strong>22 «Wilma»</strong></span>
+              <!-- Блок: btn; модификатор --soft-green внутри карточки -->
+              <a class="btn btn--soft btn--soft-green" href="compare.html">Подробнее →</a>
+            </div>
+
+          </article>
+          <!-- /article.card--linux -->
+
+        </div>
+        <!-- /os-cards__grid -->
+
+      </div>
+    </section>
+    <!-- /section.os-cards -->
+
+    <!-- БЛОК: features — ключевые концепции
+         Семантический тег <section> -->
+    <section class="features" aria-label="Ключевые концепции">
+      <div class="features__inner">
+
+        <!-- Элемент: шапка секции -->
+        <div class="features__head">
+          <p class="features__eyebrow">Теория</p>
+          <h2 class="features__title">Что важно знать</h2>
+        </div>
+
+        <!-- Элемент: сетка -->
+        <div class="features__grid">
+
+          <!-- БЛОК: feature — одна концепция -->
+          <div class="feature">
+            <div class="feature__icon" aria-hidden="true">🧩</div>
+            <h3 class="feature__title">Архитектура ядра</h3>
+            <p class="feature__text">NT-ядро Windows — гибридное. Ядро Linux — монолитное с поддержкой модулей.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature__icon" aria-hidden="true">🔐</div>
+            <h3 class="feature__title">Безопасность</h3>
+            <p class="feature__text">Linux применяет модель прав POSIX. Windows — UAC, Defender и TPM 2.0.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature__icon" aria-hidden="true">📦</div>
+            <h3 class="feature__title">Управление ПО</h3>
+            <p class="feature__text">apt / Flatpak в Linux против winget и Microsoft Store в Windows.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature__icon" aria-hidden="true">⚙️</div>
+            <h3 class="feature__title">Настраиваемость</h3>
+            <p class="feature__text">Linux открывает полный исходный код. Windows — закрытая управляемая среда.</p>
+          </div>
+
+        </div>
+        <!-- /features__grid -->
+
+      </div>
+    </section>
+    <!-- /section.features -->
+
+  </main>
+  <!-- /main -->
+
+  <!-- БЛОК: footer
+       Семантический тег <footer>
+       Подвал сайта -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <!-- Элемент: копирайт -->
+      <p class="footer__copy">© 2026 OSGuide — учебный проект</p>
+
+      <!-- Блок: nav внутри footer -->
+      <nav class="footer__nav" aria-label="Навигация в подвале">
+        <a class="footer__link" href="index.html">Главная</a>
+        <a class="footer__link" href="compare.html">Сравнение</a>
+      </nav>
+
+    </div>
+  </footer>
+  <!-- /footer -->
+
+</body>
+
+</html>

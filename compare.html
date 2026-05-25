@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Операционные системы — Сравнение</title>
+
+  <!-- Подключение шрифтов Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;1,500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Подключение общих стилей -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="page">
+
+  <!-- БЛОК: header
+       Семантический тег <header>
+       Шапка сайта: логотип + навигация -->
+  <header class="header">
+    <div class="header__inner">
+
+      <!-- Элемент: логотип -->
+      <div class="header__logo">
+        <span class="header__logo-mark">OS</span>
+        <span class="header__logo-text">Guide</span>
+      </div>
+
+      <!-- Блок: nav — основная навигация -->
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="nav__link" href="index.html">Главная</a>
+        <!-- Модификатор --active — текущая страница -->
+        <a class="nav__link nav__link--active" href="compare.html">Сравнение</a>
+      </nav>
+
+    </div>
+  </header>
+  <!-- /header -->
+
+  <!-- СЕМАНТИЧЕСКИЙ ТЕГ: <main>
+       Основное содержимое страницы -->
+  <main>
+
+    <!-- БЛОК: main — главный экран страницы сравнения
+         Модификатор --compare (компактная версия без изображения)
+         Семантический тег <section> -->
+    <section class="main main--compare" aria-label="Заголовок страницы сравнения">
+
+      <!-- Декоративный фоновый слой -->
+      <div class="main__bg" aria-hidden="true">
+        <div class="main__bg-blob main__bg-blob--blue"></div>
+        <div class="main__bg-blob main__bg-blob--mint"></div>
+      </div>
+
+      <div class="main__inner">
+        <div class="main__content">
+          <!-- Элемент: метка -->
+          <p class="main__eyebrow">Детальный анализ</p>
+          <!-- Элемент: заголовок -->
+          <h1 class="main__title">
+            Windows 11 <em class="main__title-em">vs</em> Linux Mint
+          </h1>
+          <!-- Элемент: описание -->
+          <p class="main__desc">
+            Параметры, системные требования и сценарии применения
+            двух популярных операционных систем.
+          </p>
+        </div>
+      </div>
+
+    </section>
+    <!-- /section.main--compare -->
+
+    <!-- БЛОК: banner — визуальный баннер с фото
+         Семантический тег <section> -->
+    <section class="banner" aria-label="Визуальное сравнение">
+      <div class="banner__inner">
+
+        <!-- Элемент: левая сторона — Windows -->
+        <div class="banner__side banner__side--windows">
+          <img class="banner__img" src="img/Windows.jpg"
+            alt="Интерфейс Windows 11" />
+          <!-- Элемент: подпись на изображении -->
+          <div class="banner__caption">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/windows11.svg" alt=""
+              class="banner__caption-icon" style="filter: invert(30%) sepia(90%) saturate(1500%) hue-rotate(190deg);" />
+            <span class="banner__caption-text">Windows 11</span>
+          </div>
+        </div>
+
+        <!-- Элемент: разделитель по центру -->
+        <div class="banner__divider" aria-hidden="true">
+          <span class="banner__divider-label">VS</span>
+        </div>
+
+        <!-- Элемент: правая сторона — Linux -->
+        <div class="banner__side banner__side--linux">
+          <img class="banner__img" src="img/Linux.jpg"
+            alt="Интерфейс Linux Mint" />
+          <!-- Элемент: подпись на изображении -->
+          <div class="banner__caption">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linuxmint.svg" alt=""
+              class="banner__caption-icon" style="filter: invert(55%) sepia(60%) saturate(500%) hue-rotate(65deg);" />
+            <span class="banner__caption-text">Linux Mint</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- /section.banner -->
+
+    <!-- БЛОК: compare — таблица сравнения
+         Семантический тег <section> -->
+    <section class="compare" aria-label="Таблица сравнения">
+      <div class="compare__inner">
+
+        <!-- Элемент: заголовок секции -->
+        <div class="compare__head">
+          <p class="compare__eyebrow">Характеристики</p>
+          <h2 class="compare__title">Таблица сравнения</h2>
+        </div>
+
+        <!-- Элемент: обёртка таблицы (для горизонтального скролла) -->
+        <div class="compare__table-wrap">
+
+          <!-- БЛОК: table — сравнительная таблица -->
+          <table class="table" aria-label="Сравнение Windows 11 и Linux Mint">
+
+            <!-- Элемент: голова таблицы -->
+            <thead class="table__head">
+              <tr class="table__row table__row--head">
+                <th class="table__cell table__cell--head table__cell--param" scope="col">Параметр</th>
+                <!-- Модификатор --windows: колонка Windows -->
+                <th class="table__cell table__cell--head table__cell--windows" scope="col">Windows 11</th>
+                <!-- Модификатор --linux: колонка Linux -->
+                <th class="table__cell table__cell--head table__cell--linux" scope="col">Linux Mint</th>
+              </tr>
+            </thead>
+
+            <!-- Элемент: тело таблицы -->
+            <tbody class="table__body">
+
+              <tr class="table__row">
+                <td class="table__cell table__cell--param">Тип лицензии</td>
+                <td class="table__cell table__cell--windows">Проприетарная</td>
+                <td class="table__cell table__cell--linux">Свободная (GPL)</td>
+              </tr>
+
+              <!-- Модификатор --alt: чётная строка (зебра) -->
+              <tr class="table__row table__row--alt">
+                <td class="table__cell table__cell--param">Стоимость</td>
+                <td class="table__cell table__cell--windows">от 15 000 ₽ (Home)</td>
+                <td class="table__cell table__cell--linux table__cell--highlight">Бесплатно</td>
+              </tr>
+
+              <tr class="table__row">
+                <td class="table__cell table__cell--param">Файловая система</td>
+                <td class="table__cell table__cell--windows">NTFS, ReFS</td>
+                <td class="table__cell table__cell--linux">ext4, Btrfs, XFS</td>
+              </tr>
+
+              <tr class="table__row table__row--alt">
+                <td class="table__cell table__cell--param">Минимум RAM</td>
+                <td class="table__cell table__cell--windows">4 ГБ</td>
+                <td class="table__cell table__cell--linux table__cell--highlight">2 ГБ</td>
+              </tr>
+
+              <tr class="table__row">
+                <td class="table__cell table__cell--param">Минимум диска</td>
+                <td class="table__cell table__cell--windows">64 ГБ</td>
+                <td class="table__cell table__cell--linux table__cell--highlight">20 ГБ</td>
+              </tr>
+
+              <tr class="table__row table__row--alt">
+                <td class="table__cell table__cell--param">Командная оболочка</td>
+                <td class="table__cell table__cell--windows">PowerShell, CMD</td>
+                <td class="table__cell table__cell--linux">Bash, Zsh, Fish</td>
+              </tr>
+
+              <tr class="table__row">
+                <td class="table__cell table__cell--param">Менеджер пакетов</td>
+                <td class="table__cell table__cell--windows">winget, MS Store</td>
+                <td class="table__cell table__cell--linux">apt, Flatpak, Snap</td>
+              </tr>
+
+              <tr class="table__row table__row--alt">
+                <td class="table__cell table__cell--param">Поддержка игр</td>
+                <!-- Модификатор --good: высокая оценка -->
+                <td class="table__cell table__cell--windows table__cell--good">Отличная</td>
+                <!-- Модификатор --medium: средняя оценка -->
+                <td class="table__cell table__cell--linux table__cell--medium">Через Proton / Wine</td>
+              </tr>
+
+              <tr class="table__row">
+                <td class="table__cell table__cell--param">Приватность</td>
+                <td class="table__cell table__cell--windows table__cell--medium">Средняя</td>
+                <td class="table__cell table__cell--linux table__cell--good">Высокая</td>
+              </tr>
+
+              <tr class="table__row table__row--alt">
+                <td class="table__cell table__cell--param">Порог вхождения</td>
+                <td class="table__cell table__cell--windows table__cell--good">Низкий</td>
+                <td class="table__cell table__cell--linux table__cell--medium">Средний</td>
+              </tr>
+
+            </tbody>
+          </table>
+          <!-- /table -->
+
+        </div>
+        <!-- /compare__table-wrap -->
+
+      </div>
+    </section>
+    <!-- /section.compare -->
+
+    <!-- БЛОК: usecases — сценарии применения
+         Семантический тег <section> -->
+    <section class="usecases" aria-label="Сценарии применения">
+      <div class="usecases__inner">
+
+        <!-- Элемент: шапка секции -->
+        <div class="usecases__head">
+          <p class="usecases__eyebrow">Применение</p>
+          <h2 class="usecases__title">Кому подойдёт?</h2>
+        </div>
+
+        <!-- Элемент: сетка карточек сценариев -->
+        <div class="usecases__grid">
+
+          <!-- БЛОК: usecase; модификатор --windows -->
+          <article class="usecase usecase--windows">
+            <h3 class="usecase__title">Windows 11</h3>
+            <ul class="usecase__list">
+              <!-- Элемент: пункт сценария -->
+              <li class="usecase__item">Геймеры и стримеры</li>
+              <li class="usecase__item">Корпоративные пользователи</li>
+              <li class="usecase__item">Работа с Adobe-пакетами</li>
+              <li class="usecase__item">Начинающие пользователи ПК</li>
+            </ul>
+          </article>
+
+          <!-- БЛОК: usecase; модификатор --linux -->
+          <article class="usecase usecase--linux">
+            <h3 class="usecase__title">Linux Mint</h3>
+            <ul class="usecase__list">
+              <li class="usecase__item">Разработчики и DevOps-инженеры</li>
+              <li class="usecase__item">Системные администраторы</li>
+              <li class="usecase__item">Слабые и старые компьютеры</li>
+              <li class="usecase__item">Сторонники конфиденциальности</li>
+            </ul>
+          </article>
+
+        </div>
+        <!-- /usecases__grid -->
+
+      </div>
+    </section>
+    <!-- /section.usecases -->
+
+  </main>
+  <!-- /main -->
+
+  <!-- БЛОК: footer
+       Семантический тег <footer>
+       Подвал сайта -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <!-- Элемент: копирайт -->
+      <p class="footer__copy">© 2026 OSGuide — учебный проект</p>
+
+      <!-- Блок: nav внутри footer -->
+      <nav class="footer__nav" aria-label="Навигация в подвале">
+        <a class="footer__link" href="index.html">Главная</a>
+        <a class="footer__link" href="compare.html">Сравнение</a>
+      </nav>
+
+    </div>
+  </footer>
+  <!-- /footer -->
+
+</body>
+
+</html>
